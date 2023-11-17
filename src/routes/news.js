@@ -4,7 +4,7 @@ const axios = require ('axios');
 const bodyParser = require('body-parser');
 
 const API_URL = "https://newsapi.org/v2"
-const APIkey = "5251f04dec0d4da9ae04260a0d22fad7";
+const APIkey = "YOUR_API_KEY";
 
 
 
