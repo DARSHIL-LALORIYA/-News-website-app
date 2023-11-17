@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('nav.ejs') %>
+
+    <div class="heading">
+        <h2>Trending Topic's</h2>
+    </div>
+     
+    <div class="topHeading-container">
+        
+        <% if(articles != null || article.title != null || article.author != null || article.urlToImage != null ) { %>
+            
+            <% articles.forEach(function(article,index) { %>
+                <% if ((typeof article.url=='object') || (typeof article.title=='object') || (typeof article.urlToImage=='object') || (typeof article.content=='object')){ %>
+                    <% } else{ %>
+                
+                
+                    <a href="<%- article.url %>" target="_blank">
+                        <div class="newsCard">
+                            <div class="newsCard__header">
+                              <img src="<%- article.urlToImage %>" alt="newsCard__image" class="newsCard__image" width="600">
+                            </div>
+                            <div class="newsCard__body">
+                              <span class="tag tag-blue"><%- article.author %></span>
+                              <h4><%- article.title %></h4>
+                              <p><%- article.description %></p>
+                            </div>
+                            <div class="newsCard__footer">
+                              <div class="publisher">
+                                <div class="publisher__info">
+                                  <h5><%- article.publishedAt %></h5>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </a>
+               
+                <%}%>
+            <% }); %>  
+            <% } else { %>
+                No posts found.
+            <% } %>
+    </div> 
+</body>
+</html>
